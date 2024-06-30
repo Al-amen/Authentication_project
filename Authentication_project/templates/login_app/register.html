@@ -1,0 +1,33 @@
+{% extends 'login_app/base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login_app/register.css' %}">
+<style>
+    /* Custom CSS for centering the form */
+    .center-form {
+        max-width: 600px;
+        margin: 0 auto; /* Centers the element horizontally */
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+</style>
+{% endblock css %}
+
+{% block block_body %}
+<h1 class="text-center">Register Page</h1>
+
+{% if register %}
+<div class="alert alert-success">Congratulations! Successfully Registered</div>
+{% else %}
+<div class="center-form">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ user_info_form.as_p }}
+        <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+    </form>
+</div>
+{% endif %}
+{% endblock block_body %}

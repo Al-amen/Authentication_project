@@ -1,0 +1,27 @@
+/* static/css/login_app/register.css */
+body {
+    background-color: #f8f9fa;
+}
+
+h1 {
+    color: #343a40;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.center-form {
+    max-width: 600px;
+    margin: 0 auto; /* Centers the element horizontally */
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background-color: #fff;
+}
