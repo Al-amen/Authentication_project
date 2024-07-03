@@ -1,9 +1,26 @@
 {% extends 'login_app/base.html' %}
 
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login_app/index.css' %}">
+    
+{% endblock css %}
+    
 
 
 {% block block_body %}
 <h1>home page</h1>
+ 
+ {% if user.is_authenticated %}
+  <img src="media/{{user_more_info.profile_picture}}" alt="" srcset="">
+  <p>{{ user_basic_info.username}}</p>
+  <p>{{ user_basic_info.email}}</p>
+  <p> <a href="{{user_more_info.facebook_url}}">Facebook</a></p>
+
+ 
+ {% else %}
+ {% endif %}
     
 {% endblock block_body %}
     
