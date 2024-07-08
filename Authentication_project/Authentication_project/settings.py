@@ -134,7 +134,7 @@ MEDIA_ROOT = MEDIA_DIR
 
 #LOGIN
 
-LOGIN_URL = '/login/'
+LOGIN_URL = '/index/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

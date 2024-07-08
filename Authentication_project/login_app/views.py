@@ -58,24 +58,29 @@ def login_page(request):
 
 
 def user_login(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        
-        user = authenticate(username=username,password=password) 
-        
-        if user :
-            if  user.is_active:
-              login(request,user)
-              
-              return HttpResponseRedirect(reverse('login_app:index'))
-            else:
-               return HttpResponse("Account is not Active")
+    if not request.user.is_authenticated:      
+        if request.method == "POST":
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            
+            user = authenticate(username=username,password=password) 
+            
+            if user :
+                if  user.is_active:
+                 login(request,user)
+                
+                 return HttpResponseRedirect(reverse('login_app:index'))
+                else:
+                  return HttpResponse("Account is not Active")
+            else :
+                return HttpResponse("User credential does not match!!")
         else :
-             return HttpResponse("User credential does not match!!")
+            # return render(request, 'login_app/index.html',context={})
+            return HttpResponseRedirect(reverse('login_app:index'))
     else :
-        # return render(request, 'login_app/index.html',context={})
-        return HttpResponseRedirect(reverse('login_app:index'))
+       return HttpResponseRedirect(reverse('login_app:index'))
+   
+   
 @login_required
 def user_logout(request):
     logout(request)
